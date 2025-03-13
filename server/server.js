@@ -1,0 +1,32 @@
+const express = require("express");
+const Database = require("better-sqlite3");
+const cors = require("cors");
+
+const port = 8000;
+
+const db = new Database("./db/products.db", {
+    //Vi vill se sql-kommandon som körs i konsolen
+    verbose: console.log,
+});
+
+const app = express();
+
+//För att datan ska kunna hämtas upp från servern
+app.use(cors({
+    origin: ["http://localhost:3000"]
+}));
+
+app.get("/api/products", (req, res) => {
+
+    //Förbered den valda produkten
+    const select = db.prepare("SELECT id, name, price, brand, image, slug, addedDate, description, sku FROM products");
+
+    //Hämta alla rader
+    const products = select.all();
+
+    res.json(products);
+});
+
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+});

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* hela sidan */
+body {
+background-color: darkgray;
+}
