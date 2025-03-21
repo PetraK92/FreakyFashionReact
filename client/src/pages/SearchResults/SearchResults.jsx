@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 
 const SearchResults = ({ products }) => {
@@ -15,7 +15,12 @@ const SearchResults = ({ products }) => {
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className="p-4 border rounded-lg shadow-lg">
-                <img src={product.image} className="w-full h-auto rounded-lg" />
+                <Link to={`/products/${product.slug}`}>
+                  <img
+                    src={product.image}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </Link>
                 <h3 className="text-center mt-2 text-lg font-semibold">
                   {product.name}
                 </h3>

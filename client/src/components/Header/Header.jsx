@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
@@ -5,7 +6,9 @@ const Header = () => {
     <header className="px-0 py-4">
       <div className="mainmenu flex items-center justify-between w-full">
         <div className="logo">
-          <img src="../../images/Freaky Fashion2.png" alt="logga" />
+          <Link to="/">
+            <img src="../../images/Freaky Fashion2.png" alt="logga" />
+          </Link>
         </div>
         <div className="menucontainer flex items-center gap-1 flex-1 max-w-2xl w-full">
           <div className="searchbar w-auto">
@@ -13,14 +16,14 @@ const Header = () => {
           </div>
           <ul className="icons flex items-center gap-4 flex-shrink-0 ml-auto">
             <li>
-              <a href="#">
+              <Link to="#">
                 <i className="bi bi-heart-fill"></i>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link to="#">
                 <i className="bi bi-basket"></i>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -28,16 +31,24 @@ const Header = () => {
       <nav className="w-full bg-stone-400 p-3">
         <ul className="topmenu flex flex-row gap-x-6 w-full">
           <li>
-            <a href="#">Nyheter</a>
+            <NavLink to="#">
+              <p>Nyheter</p>
+            </NavLink>
           </li>
           <li>
-            <a href="#">Topplista</a>
+            <NavLink to="#">
+              <p>Topplista</p>
+            </NavLink>
           </li>
           <li>
-            <a href="#">Rea</a>
+            <NavLink to="#">
+              <p>Rea</p>
+            </NavLink>
           </li>
           <li>
-            <a href="#">Kampanjer</a>
+            <NavLink to="#">
+              <p>Kampanjer</p>
+            </NavLink>
           </li>
         </ul>
       </nav>

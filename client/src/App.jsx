@@ -4,6 +4,9 @@ import Home from "./pages/Home/Home";
 import SearchResults from "./pages/SearchResults/SearchResults";
 import ProductCards from "./components/ProductCards/ProductCards";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Admin from "./pages/Admin/Admin";
+import AddProduct from "./pages/AddProduct/AddProduct";
+import AdminLayout from "./components/Layout/AdminLayout";
 
 function App() {
   const [products, setProducts] = useState([]); // State för att lagra produkterna
@@ -37,7 +40,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/test" element={<div>Det här är ett test</div>} />
           <Route
             path="/products"
             element={<ProductCards products={products} />}
@@ -46,7 +48,12 @@ function App() {
             path="/search/:query"
             element={<SearchResults products={products} />}
           />
-          <Route path="/productdetails/:id" element={<ProductDetails />} />
+          <Route path="/products/:slug" element={<ProductDetails />} />
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="products" element={<Admin />} />
+            <Route path="products/new" element={<AddProduct />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
