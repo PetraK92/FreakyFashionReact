@@ -5,28 +5,46 @@ const cors = require("cors");
 const port = 8000;
 
 const db = new Database("./db/products.db", {
-    //Vi vill se sql-kommandon som körs i konsolen
-    verbose: console.log,
+  //Vi vill se sql-kommandon som körs i konsolen
+  verbose: console.log,
 });
 
 const app = express();
 
 //För att datan ska kunna hämtas upp från servern
-app.use(cors({
-    origin: ["http://localhost:3000"]
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+  })
+);
 
 app.get("/api/products", (req, res) => {
+  //Förbered den valda produkten
+  const select = db.prepare(
+    "SELECT id, name, price, brand, image, slug, addedDate, description, sku FROM products"
+  );
 
-    //Förbered den valda produkten
-    const select = db.prepare("SELECT id, name, price, brand, image, slug, addedDate, description, sku FROM products");
+  //Hämta alla rader
+  const products = select.all();
 
-    //Hämta alla rader
-    const products = select.all();
-
-    res.json(products);
+  res.json(products);
 });
 
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+  console.log(`Server started on port ${port}`);
+});
+
+app.get("/api/product/:slug", (req, res) => {
+  const { slug } = req.params;
+  const select = db.prepare(
+    "SELECT id, name, price, brand, image, slug, addedDate, description, sku FROM products WHERE slug = ?"
+  );
+
+  const product = select.get(slug);
+
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ message: "Product not found" });
+  }
 });
