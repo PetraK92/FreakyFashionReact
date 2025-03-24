@@ -10,7 +10,7 @@ const Header = () => {
             <img src="../../images/Freaky Fashion2.png" alt="logga" />
           </Link>
         </div>
-        <div className="menucontainer flex items-center gap-1 flex-1 max-w-2xl w-full">
+        <div className="menucontainer hidden sm:flex items-center gap-1 flex-1 max-w-2xl w-full">
           <div className="searchbar w-auto">
             <SearchBar />
           </div>
@@ -28,8 +28,25 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <div className="menucontainer sm:hidden flex items-center gap-4 mt-4 w-full">
+        <div className="searchbar w-full">
+          <SearchBar />
+        </div>
+        <ul className="icons flex items-center gap-4 ml-4">
+          <li>
+            <Link to="#">
+              <i className="bi bi-heart-fill"></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="#">
+              <i className="bi bi-basket"></i>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <nav className="w-full bg-stone-400 p-3">
-        <ul className="topmenu flex flex-row gap-x-6 w-full">
+        <ul className="topmenu flex flex-col sm:flex-row gap-y-4 sm:gap-x-6 w-full">
           <li>
             <NavLink to="#">
               <p>Nyheter</p>

@@ -19,11 +19,11 @@ const SearchBar = () => {
         placeholder="Sök efter produkter..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="border p-2 rounded-md w-full"
+        className="border p-2 rounded-md w-full bg-white"
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className="bg-emerald-600 text-white px-4 py-2 rounded-md"
       >
         Sök
       </button>

@@ -10,11 +10,17 @@ const ProductCards = ({ products }) => {
           <div
             key={product.slug}
             onClick={() => navigate(`/products/${product.slug}`)}
-            className="productcardMain p-4 border rounded-lg shadow-lg relative"
+            className="productcardMain p-4 border rounded-lg shadow-lg relative bg-white"
           >
-            <img src={product.image} className="w-full h-auto rounded-lg" />
+            <img
+              src={product.image}
+              className="w-full h-96 sm:h-80 md:h-64 object-contain rounded-lg"
+            />
             <h3 className="product-name text-center mt-2 text-lg font-semibold">
               <Link to={`/products/${product.slug}`}>{product.name}</Link>
+              <div className="mt-1 text-sm text-gray-700">
+                {product.price} kr
+              </div>
             </h3>
             {/* LikeButton placerad i övre högra hörnet */}
             <div className="absolute top-2 right-2">
