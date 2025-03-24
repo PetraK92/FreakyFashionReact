@@ -43,7 +43,13 @@ app.get("/api/product/:slug", (req, res) => {
   const product = select.get(slug);
 
   if (product) {
-    res.json(product);
+    const selectSimilarProducts = db.prepare(
+      "SELECT id, name, price, brand, image, slug FROM products WHERE slug != ? ORDER BY RANDOM() LIMIT 3"
+    );
+
+    const similarProducts = selectSimilarProducts.all(slug);
+
+    res.json({ ...product, similarProducts });
   } else {
     res.status(404).json({ message: "Product not found" });
   }
