@@ -8,6 +8,11 @@ import Layout from "../../components/Layout/Layout";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [heroData] = useState({
+    title: "Välkommen till vår butik!",
+    description: "Upptäck fantastiska kläder och tillbehör.",
+    imageUrl: "/images/herobild.jpg",
+  });
 
   useEffect(() => {
     const getProducts = async () => {
@@ -17,10 +22,15 @@ const Home = () => {
     };
     getProducts();
   }, []);
-  console.log("products ", products);
+
   return (
     <Layout>
-      <Hero />
+      <Hero
+        title={heroData.title}
+        description={heroData.description}
+        imageUrl={heroData.imageUrl}
+      />
+
       <Spots />
       <ProductCards products={products} />
       <LikeButton />

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddProductForm = () => {
+const NewProductForm = () => {
   const [productData, setProductData] = useState({
     name: "",
     description: "",
@@ -15,7 +15,10 @@ const AddProductForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProductData({ ...productData, [name]: value });
+    setProductData({
+      ...productData,
+      [name]: name === "price" ? Number(value) : value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -129,4 +132,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default NewProductForm;

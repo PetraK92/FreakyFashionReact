@@ -14,11 +14,14 @@ const SearchResults = ({ products }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
-              <div key={product.id} className="p-4 border rounded-lg shadow-lg">
+              <div
+                key={product.id}
+                className="p-4 border rounded-lg shadow-lg bg-white"
+              >
                 <Link to={`/products/${product.slug}`}>
                   <img
                     src={product.image}
-                    className="w-full h-auto rounded-lg"
+                    className="w-auto h-84 object-cover rounded-lg mx-auto"
                   />
                 </Link>
                 <h3 className="text-center mt-2 text-lg font-semibold">
