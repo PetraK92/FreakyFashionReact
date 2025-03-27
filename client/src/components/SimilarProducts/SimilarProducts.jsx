@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LikeButton from "../LikeButton/LikeButton";
 
 const SimilarProducts = ({ similarProducts }) => {
   console.log(similarProducts);
@@ -12,7 +13,7 @@ const SimilarProducts = ({ similarProducts }) => {
           similarProducts.map((product) => (
             <div
               key={product.slug}
-              className="border rounded-lg shadow-md p-4 bg-white"
+              className="relative border rounded-lg shadow-md p-4 bg-white"
             >
               <Link to={`/products/${product.slug}`}>
                 <div className="flex justify-center">
@@ -27,6 +28,9 @@ const SimilarProducts = ({ similarProducts }) => {
                 <h2 className="text-lg font-bold">{product.name}</h2>
                 <h2 className="text-gray-700">{product.price} SEK</h2>
                 <p className="text-sm text-gray-500">{product.brand}</p>
+              </div>
+              <div className="absolute top-2 right-2">
+                <LikeButton />
               </div>
             </div>
           ))

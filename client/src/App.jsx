@@ -17,7 +17,7 @@ function App() {
     // Hämta produkter från API
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/products"); // Byt ut mot din API-url
+        const response = await fetch("http://localhost:8000/api/products");
         if (!response.ok) {
           throw new Error("Något gick fel vid hämtning av produkter");
         }

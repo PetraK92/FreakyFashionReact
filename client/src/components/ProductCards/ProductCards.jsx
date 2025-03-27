@@ -22,7 +22,6 @@ const ProductCards = ({ products }) => {
                 {product.price} kr
               </div>
             </h3>
-            {/* LikeButton placerad i övre högra hörnet */}
             <div className="absolute top-2 right-2">
               <LikeButton />
             </div>

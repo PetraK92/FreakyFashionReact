@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import EndIcons from "../../components/EndIcons/EndIcons";
 import Hero from "../../components/Hero/Hero";
-import LikeButton from "../../components/LikeButton/LikeButton";
 import ProductCards from "../../components/ProductCards/ProductCards";
 import Spots from "../../components/Spots/Spots";
 import Layout from "../../components/Layout/Layout";
@@ -33,7 +32,6 @@ const Home = () => {
 
       <Spots />
       <ProductCards products={products} />
-      <LikeButton />
       <EndIcons />
     </Layout>
   );

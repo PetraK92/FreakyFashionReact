@@ -3,10 +3,8 @@ import Accordion from "./Accordion";
 const Footer = () => {
   return (
     <footer>
-      {/* Accordion only visible on mobile (screen width < 640px) */}
       <Accordion />
 
-      {/* Copyright visible on mobile */}
       <div className="copyright block md:hidden text-center">
         <p>
           <i className="bi bi-c-circle"></i>
@@ -14,8 +12,7 @@ const Footer = () => {
         </p>
       </div>
 
-      {/* Regular footer visible on larger screens (md and above) */}
-      <nav className="endmenu hidden md:flex flex-col items-center py-6 bg-stone-500">
+      <nav className="endmenu hidden md:flex flex-col items-center py-6 bg-neutral-500">
         <div className="flex justify-around w-full">
           <ul>
             <li>Shopping</li>

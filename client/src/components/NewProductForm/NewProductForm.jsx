@@ -34,7 +34,7 @@ const NewProductForm = () => {
       if (!response.ok) throw new Error("Misslyckades att lägga till produkt");
 
       alert("Produkt tillagd!");
-      navigate("/admin/products"); // Navigera tillbaka till admin-sidan
+      navigate("/admin/products");
     } catch (error) {
       console.error("Fel vid tillägg:", error);
       alert("Något gick fel, försök igen.");

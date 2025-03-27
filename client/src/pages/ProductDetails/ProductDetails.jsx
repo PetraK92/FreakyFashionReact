@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import SimilarProducts from "../../components/SimilarProducts/SimilarProducts";
+import LikeButton from "../../components/LikeButton/LikeButton";
 
 function ProductDetails() {
   let params = useParams();
@@ -37,9 +38,12 @@ function ProductDetails() {
             <h1 className="text-3xl font-bold">{product.name}</h1>
             <p className="text-xl text-gray-700 mt-2">{product.price} kr</p>
             <p className="mt-4 text-gray-600">{product.description}</p>
-            <button className="mt-4 px-4 py-3 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-              Lägg i varukorg
-            </button>
+            <div className="flex items-center gap-4 mt-4">
+              <button className="px-4 py-3 bg-emerald-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-emerald-800 transition duration-300">
+                Lägg i varukorg
+              </button>
+              <LikeButton />
+            </div>
           </div>
         </div>
         <SimilarProducts similarProducts={similarProducts} />

@@ -1,7 +1,8 @@
-const Spots = ()=>{
-    return (
-        <div className="spots flex justify-between px-6 py-4">
-      {/* Första spoten */}
+import { Link } from "react-router";
+
+const Spots = () => {
+  return (
+    <div className="spots hidden lg:flex justify-between px-6 py-4">
       <figure className="relative text-center">
         <img
           src="../../images/spotbyxor.jpg"
@@ -9,11 +10,10 @@ const Spots = ()=>{
           className="w-full h-auto object-cover rounded-lg"
         />
         <figcaption className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
-          Byxor
+          <Link>Byxor</Link>
         </figcaption>
       </figure>
 
-      {/* Andra spoten */}
       <figure className="relative text-center">
         <img
           src="../../images/spot4.jpg"
@@ -21,11 +21,10 @@ const Spots = ()=>{
           className="w-full h-auto object-cover rounded-lg"
         />
         <figcaption className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
-          Jackor
+          <Link>Jackor</Link>
         </figcaption>
       </figure>
 
-      {/* Tredje spoten */}
       <figure className="relative text-center">
         <img
           src="../../images/spotskort.jpg"
@@ -33,11 +32,11 @@ const Spots = ()=>{
           className="w-full h-auto object-cover rounded-lg"
         />
         <figcaption className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
-          Skor
+          <Link>Skor</Link>
         </figcaption>
       </figure>
     </div>
-)
-}
-  
+  );
+};
+
 export default Spots;

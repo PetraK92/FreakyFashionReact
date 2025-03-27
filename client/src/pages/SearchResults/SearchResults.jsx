@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
+import LikeButton from "../../components/LikeButton/LikeButton";
 
 const SearchResults = ({ products }) => {
   const { query } = useParams();
@@ -16,7 +17,7 @@ const SearchResults = ({ products }) => {
             filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="p-4 border rounded-lg shadow-lg bg-white"
+                className="relative p-4 border rounded-lg shadow-lg bg-white"
               >
                 <Link to={`/products/${product.slug}`}>
                   <img
@@ -27,6 +28,9 @@ const SearchResults = ({ products }) => {
                 <h3 className="text-center mt-2 text-lg font-semibold">
                   {product.name}
                 </h3>
+                <div className="absolute top-2 right-2">
+                  <LikeButton />
+                </div>
               </div>
             ))
           ) : (

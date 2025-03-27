@@ -45,7 +45,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <nav className="w-full bg-stone-400 p-3">
+      <nav className="w-full bg-neutral-500 p-3">
         <ul className="topmenu flex flex-col sm:flex-row gap-y-4 sm:gap-x-6 w-full">
           <li>
             <NavLink to="#">

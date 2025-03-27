@@ -1,17 +1,14 @@
 import { useState } from "react";
 
 const Accordion = () => {
-  // Hanterar tillståndet för vilken sektion som är öppen
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleAccordion = (index) => {
-    // Om samma sektion klickas på igen, stänger vi den. Annars öppnar vi den.
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
     <div className="accordion block md:hidden">
-      {/* Accordion Item 1 */}
       <div className="border-b">
         <h2 className="accordion-header">
           <button
@@ -35,7 +32,6 @@ const Accordion = () => {
         )}
       </div>
 
-      {/* Accordion Item 2 */}
       <div className="border-b">
         <h2 className="accordion-header">
           <button
@@ -57,7 +53,6 @@ const Accordion = () => {
         )}
       </div>
 
-      {/* Accordion Item 3 */}
       <div className="border-b">
         <h2 className="accordion-header">
           <button
